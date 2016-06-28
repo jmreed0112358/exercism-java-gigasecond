@@ -6,9 +6,36 @@ import java.time.LocalDateTime;
 import java.time.Month;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class GigasecondTest {
 
+	@Test
+	public void test_constructor_InvalidInput_NullLocalDate_ThrowsException() {
+		try {
+			LocalDate testInput = null;
+			Gigasecond gigaSecond = new Gigasecond(testInput);
+			fail("Supposed to catch NullPointerException");
+		} catch ( NullPointerException npe ) {
+			
+		} catch ( Exception e ) {
+			fail("Expected to catch NullPointerException");
+		}
+	}
+	
+	@Test
+	public void test_constructor_InvalidInput_NullLocalDateTime_ThrowsException() {
+		try {
+			LocalDateTime testInput = null;
+			Gigasecond gigaSecond = new Gigasecond(testInput);
+			fail("Supposed to catch NullPointerException");
+		} catch ( NullPointerException npe ) {
+			
+		} catch ( Exception e ) {
+			fail("Expected to catch NullPointerException");
+		}
+	}
+	
     @Test
     public void modernTime() {
         Gigasecond gigaSecond = new Gigasecond(LocalDate.of(2011, Month.APRIL, 25));
