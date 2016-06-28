@@ -7,15 +7,25 @@ import exceptions.NotImplementedException;
 
 public class Gigasecond
 {
+	private LocalDateTime startDateTime;
+	
 	public Gigasecond( LocalDate startDate ) {
-		throw new NotImplementedException();
+		if ( startDate == null ) {
+			throw new NullPointerException();
+		}
+		
+		this.startDateTime = LocalDateTime.of( startDate.getYear( ), startDate.getMonth( ), startDate.getDayOfMonth( ), 0, 0, 0 );
 	}
 
 	public Gigasecond( LocalDateTime startDateTime ) {
-		throw new NotImplementedException();
+		if ( startDateTime == null ) {
+			throw new NullPointerException();
+		}
+		
+		this.startDateTime = startDateTime;
 	}
 	
 	public LocalDateTime getDate() {
-		throw new NotImplementedException();
+		return this.startDateTime.plusSeconds( 1000000000L );
 	}
 }
